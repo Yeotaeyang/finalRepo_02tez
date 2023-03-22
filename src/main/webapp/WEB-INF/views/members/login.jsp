@@ -7,11 +7,11 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/include/head.jsp" %>
-<!doctype html>
-<html lang="en">
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -216,92 +216,27 @@ pageEncoding="UTF-8"%>
             </form><!-- /form -->
             <a href="#" class="go-to-signin">
                 회원이 아니신가요?
+=======
+<meta charset="UTF-8">
+</head>
+<body>
+
+            
+            <form  action="/members/login"  method="POST" >
+
+                <input type="text" id="inputId"  placeholder="아이디" required autofocus>
+                <input type="password" id="inputPassword" placeholder="비밀번호" required>
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> 아이디 기억하기
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">로그인</button>
+            </form>
+            <a href="#" class="forgot-password">
+                비밀번호 찾기
+>>>>>>> 8533fe9538f49d5906a352f8669898bb38234b51
             </a>
-        </div><!-- /card-container -->
-    </div><!-- /container -->
-       
-    <script>
-    $( document ).ready(function() {
-        // DOM ready
 
-        // Test data
-        /*
-         * To test the script you should discomment the function
-         * testLocalStorageData and refresh the page. The function
-         * will load some test data and the loadProfile
-         * will do the changes in the UI
-         */
-        // testLocalStorageData();
-        // Load profile if it exits
-        loadProfile();
-    });
-
-    /**
-     * Function that gets the data of the profile in case
-     * thar it has already saved in localstorage. Only the
-     * UI will be update in case that all data is available
-     *
-     * A not existing key in localstorage return null
-     *
-     */
-    function getLocalProfile(callback){
-        var profileImgSrc      = localStorage.getItem("PROFILE_IMG_SRC");
-        var profileName        = localStorage.getItem("PROFILE_NAME");
-        var profileReAuthEmail = localStorage.getItem("PROFILE_REAUTH_EMAIL");
-
-        if(profileName !== null
-                && profileReAuthEmail !== null
-                && profileImgSrc !== null) {
-            callback(profileImgSrc, profileName, profileReAuthEmail);
-        }
-    }
-
-    /**
-     * Main function that load the profile if exists
-     * in localstorage
-     */
-    function loadProfile() {
-        if(!supportsHTML5Storage()) { return false; }
-        // we have to provide to the callback the basic
-        // information to set the profile
-        getLocalProfile(function(profileImgSrc, profileName, profileReAuthEmail) {
-            //changes in the UI
-            $("#profile-img").attr("src",profileImgSrc);
-            $("#profile-name").html(profileName);
-            $("#reauth-email").html(profileReAuthEmail);
-            $("#inputEmail").hide();
-            $("#remember").hide();
-        });
-    }
-
-    /**
-     * function that checks if the browser supports HTML5
-     * local storage
-     *
-     * @returns {boolean}
-     */
-    function supportsHTML5Storage() {
-        try {
-            return 'localStorage' in window && window['localStorage'] !== null;
-        } catch (e) {
-            return false;
-        }
-    }
-
-    /**
-     * Test data. This data will be safe by the web app
-     * in the first successful login of a auth user.
-     * To Test the scripts, delete the localstorage data
-     * and comment this call.
-     *
-     * @returns {boolean}
-     */
-    function testLocalStorageData() {
-        if(!supportsHTML5Storage()) { return false; }
-        localStorage.setItem("PROFILE_IMG_SRC", "//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" );
-        localStorage.setItem("PROFILE_NAME", "César Izquierdo Tello");
-        localStorage.setItem("PROFILE_REAUTH_EMAIL", "oneaccount@gmail.com");
-    }
-    </script>    
 </body>
 </html>

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/head.jsp" %>
+<meta id="_csrf" name="_csrf" content="${_csrf.token}"></meta>
+<meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}"></meta>
 <!-- head 설정 -->
 <body class="campingHome">
 
@@ -15,8 +17,9 @@
 
             <!-- Content -->
             <section>
+
                 <header class="main">
-                    <h1>캠핑의 집</h1>
+                    <h1>${board.title}</h1>
                 </header>
 
 
@@ -27,21 +30,18 @@
                         </div>
                         <div class="col-6 col-12-large" border="1px solid black">
 
+
+
                             <div>
                                 <p>
-                                    <input type="text" name="text" value='${board.hashtag}' readonly>
                                     해시태그 작성란입니다.
-                                    #캠핑 #차박 #캠핑장비
+                                    <input type="text" name="text" value='${board.hashtag}' readonly>
                                 </p>
                             </div>
 
                             <div>
+                                <p>텍스트 작성란 입니다.</p>
                                 <input type="text" name="text" value='${board.text}' readonly>
-                                캠핑의집 디테일 페이지 게시글 작성 테스트 중입니다
-                                111111111111111111111111111111111111111111
-                                22222222222222222222222222222222222
-                                3333333333333333333333333333333333
-                                44444444444444444444444444444444444
                             </div>
                         </div>
 
@@ -66,8 +66,6 @@
 
 
                     </div>
-
-
 
 
             </section>
