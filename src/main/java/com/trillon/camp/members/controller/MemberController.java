@@ -48,13 +48,3 @@ public class MemberController {
 		return "redirect:/index";
 	}
 }
-//<<<<<<< Updated upstream
-//
-//	//@GetMapping("/signIn")
-//=======
-//
-//
-//	//@GetMapping("/signin")
-//>>>>>>> Stashed changes
-//	//public void signIn() { System.out.println("signin.jsp"); }
-////}
